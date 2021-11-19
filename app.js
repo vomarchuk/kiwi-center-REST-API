@@ -13,7 +13,8 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/', (req, res) => {
-  res.status(200).json({ status: 'success', data: 'OK' })
+  res.end('<h1>Hello</h1>')
+  // res.status(200).json({ status: 'success', data: 'OK' })
 })
 
 app.use('/api/services', servicesRouter)
