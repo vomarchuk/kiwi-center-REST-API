@@ -12,7 +12,7 @@ app.use(logger(formatsLogger))
 app.use(cors())
 app.use(express.json())
 
-app.use('/home', (req, res) => {
+app.use('/', (req, res) => {
   res.status(200).json({ status: 'success', data: 'OK' })
 })
 
