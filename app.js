@@ -12,6 +12,11 @@ app.use(logger(formatsLogger))
 app.use(cors())
 app.use(express.json())
 
+app.use('/', (req, res) => {
+  res.end(`
+  <div>Home page</div>`)
+})
+
 app.use('/api/services', servicesRouter)
 
 app.use((req, res) => {
