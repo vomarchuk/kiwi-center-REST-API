@@ -5,6 +5,6 @@ const { controllerWrapper } = require('../../middleware/')
 
 router.get('/', controllerWrapper(ctrl.getAll))
 
-router.post('/', controllerWrapper(ctrl.addService))
+router.post('/add', controllerWrapper(ctrl.addService))
 
 module.exports = router
