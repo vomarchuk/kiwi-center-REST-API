@@ -12,11 +12,6 @@ app.use(logger(formatsLogger))
 app.use(cors())
 app.use(express.json())
 
-app.use('/', (req, res) => {
-  res.end('<h1>Hello</h1>')
-  // res.status(200).json({ status: 'success', data: 'OK' })
-})
-
 app.use('/api/services', servicesRouter)
 
 app.use((req, res) => {
