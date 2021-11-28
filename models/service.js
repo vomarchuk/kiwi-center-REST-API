@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose')
 
 const serviceSchema = Schema(
   {
-    name: {
+    category: {
       type: String,
       required: [true, 'Set name for contact'],
     },
