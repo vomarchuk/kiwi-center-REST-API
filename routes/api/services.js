@@ -15,8 +15,6 @@ module.exports = router
 //   updateStatusContactSchema,
 // } = require('../../models/contact')
 
-router.get('/', controllerWrapper(ctrl.getAll))
-
 // router.get('/:contactId', authenticate, controllerWrapper(ctrl.getById))
 
 // router.post(
