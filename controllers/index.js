@@ -1,2 +1,3 @@
 const serviceControllers = require('./services')
-module.exports = { serviceControllers }
+const reviewsController = require('./reviews')
+module.exports = { serviceControllers, reviewsController }

@@ -6,6 +6,20 @@ const serviceSchema = Schema(
       type: String,
       required: [true, 'Set name for contact'],
     },
+    service: {
+      id: { type: String },
+      name: {
+        type: String,
+      },
+      man: {
+        price: { type: Number },
+        priceByCart: { type: Number },
+      },
+      woman: {
+        price: { type: Number },
+        priceByCart: { type: Number },
+      },
+    },
   },
   { versionKey: false, timestamps: true },
 )

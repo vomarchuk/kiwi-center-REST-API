@@ -4,8 +4,8 @@ const { serviceControllers: ctrl } = require('../../controllers')
 const { controllerWrapper } = require('../../middleware/')
 
 router.get('/', controllerWrapper(ctrl.getAll))
-
-router.post('/add', controllerWrapper(ctrl.addService))
+router.get('/:serviceId', controllerWrapper(ctrl.getById))
+router.post('/add', controllerWrapper(ctrl.addCategory))
 
 module.exports = router
 
@@ -43,5 +43,3 @@ module.exports = router
 //   validation(updateStatusContactSchema),
 //   controllerWrapper(ctrl.updateStatusContact),
 // )
-
-module.exports = router

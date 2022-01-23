@@ -3,6 +3,7 @@ const logger = require('morgan')
 const cors = require('cors')
 
 const serviceRouter = require('./routes/api/services')
+const reviewsRouter = require('./routes/api/reviews')
 
 const app = express()
 
@@ -14,6 +15,10 @@ app.use(express.json())
 app.use(express.static('public'))
 
 app.use('/api/services', serviceRouter)
+app.use('/api/reviews', reviewsRouter)
+app.use('/', (req, res) => {
+  res.status(200).json({ message: 'OK testing' })
+})
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' })
