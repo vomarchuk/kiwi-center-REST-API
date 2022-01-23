@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const app = require('../app')
 require('dotenv').config()
 
-const { DB_HOST } = process.env
+const { DB_HOST, PORT } = process.env
 
 mongoose
   .connect(DB_HOST, {
@@ -11,8 +11,8 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(3030)
-    console.log(`Database connection successful on port 3030`)
+    app.listen(PORT)
+    console.log(`Database connection successful on port ${PORT}`)
   })
   .catch(err => {
     console.log(err.message)
