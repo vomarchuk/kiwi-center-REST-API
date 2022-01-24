@@ -7,7 +7,7 @@ const BASE_URL = 'https://maps.googleapis.com/maps/api/place/details/json'
 
 const getReviews = async options => {
   const response = await axios(
-    `${BASE_URL}?place_id=${GOOGLE_KIWI_PLACE_ID}&${options}&key=${GOOGLE_API_KEY}`,
+    `${BASE_URL}?place_id=${GOOGLE_KIWI_PLACE_ID}&${options}&key=${GOOGLE_API_KEY}&language=pl`,
   )
   return response
 }

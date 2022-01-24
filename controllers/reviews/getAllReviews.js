@@ -1,6 +1,6 @@
 const getReviews = require('../../services/google.API')
 
-const options = 'fields=name%2Crating%2Creviews'
+const options = 'fields=name%2Creviews'
 
 const getAllReviews = async (req, res, next) => {
   const response = await getReviews(options)
