@@ -1,29 +1,56 @@
 const { Schema, model } = require('mongoose')
 
+const Joi = require('joi')
+
+const pricePattern = /^[0-9]/
+
 const serviceSchema = Schema(
   {
-    category: {
-      type: String,
-      required: [true, 'Set name for contact'],
+    name: {
+      type: 'string',
+      required: [true, 'Set name for service'],
     },
-    service: {
-      id: { type: String },
-      name: {
-        type: String,
+    price: {
+      general: {
+        cost: { type: 'number' },
+        costByCart: { type: 'number' },
       },
       man: {
-        price: { type: Number },
-        priceByCart: { type: Number },
+        cost: { type: 'number' },
+        costByCart: { type: 'number' },
       },
       woman: {
-        price: { type: Number },
-        priceByCart: { type: Number },
+        cost: { type: 'number' },
+        costByCart: { type: 'number' },
       },
+    },
+
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: 'category',
     },
   },
   { versionKey: false, timestamps: true },
 )
 
+const addServiceSchema = Joi.object({
+  name: Joi.string(),
+  price: {
+    general: {
+      cost: Joi.string().pattern(pricePattern, 'cost'),
+      costByCart: Joi.string().pattern(pricePattern, 'costByCart'),
+    },
+    man: {
+      cost: Joi.string().pattern(pricePattern, 'cost'),
+      costByCart: Joi.string().pattern(pricePattern, 'costByCart'),
+    },
+    woman: {
+      cost: Joi.string().pattern(pricePattern, 'cost'),
+      costByCart: Joi.string().pattern(pricePattern, 'costByCart'),
+    },
+  },
+})
+
 const Service = model('service', serviceSchema)
 
-module.exports = { Service }
+module.exports = { Service, addServiceSchema }

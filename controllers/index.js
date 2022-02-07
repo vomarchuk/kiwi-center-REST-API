@@ -1,3 +1,4 @@
-const serviceControllers = require('./services')
+const categoryControllers = require('./category')
+const serviceControllers = require('./service')
 const reviewsController = require('./reviews')
-module.exports = { serviceControllers, reviewsController }
+module.exports = { categoryControllers, reviewsController, serviceControllers }

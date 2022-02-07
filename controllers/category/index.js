@@ -1,14 +1,14 @@
 const addCategory = require('./addCategory')
-const getAll = require('./getAll')
-const getById = require('./getById')
+const getAllCategories = require('./getAllCategories')
+const getCategoriesById = require('./getCategoriesById')
 // const removeService = require('./removeService')
 // const updateById = require('./updateById')
 // const updateStatusService = require('./updateStatusService')
 
 module.exports = {
-  getAll,
+  getAllCategories,
   addCategory,
-  getById,
+  getCategoriesById,
   // removeService,
   // updateById,
   // updateStatusService,

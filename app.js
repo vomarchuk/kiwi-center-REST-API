@@ -2,7 +2,7 @@ const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
 
-const serviceRouter = require('./routes/api/services')
+const categoryRouter = require('./routes/api/category')
 const reviewsRouter = require('./routes/api/reviews')
 
 const app = express()
@@ -14,7 +14,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.static('public'))
 
-app.use('/api/services', serviceRouter)
+app.use('/api/category', categoryRouter)
 app.use('/api/reviews', reviewsRouter)
 app.use('/', (req, res) => {
   res.status(200).json({ message: 'OK testing' })

@@ -1,3 +1,3 @@
+const { Category } = require('./category')
 const { Service } = require('./service')
-
-module.exports = { Service }
+module.exports = { Category, Service }

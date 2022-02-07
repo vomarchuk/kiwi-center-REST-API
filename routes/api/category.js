@@ -1,11 +1,20 @@
 const express = require('express')
 const router = express.Router()
-const { serviceControllers: ctrl } = require('../../controllers')
-const { controllerWrapper } = require('../../middleware/')
+const { categoryControllers: categoryCtrl } = require('../../controllers')
+const { serviceControllers: serviceCtrl } = require('../../controllers')
+const { controllerWrapper, validation } = require('../../middleware')
 
-router.get('/', controllerWrapper(ctrl.getAll))
-router.get('/:serviceId', controllerWrapper(ctrl.getById))
-router.post('/add', controllerWrapper(ctrl.addCategory))
+const { addServiceSchema } = require('../../models/service')
+
+router.get('/', controllerWrapper(categoryCtrl.getAllCategories))
+router.get('/:categoryId', controllerWrapper(categoryCtrl.getCategoriesById))
+router.post('/addCategory', controllerWrapper(categoryCtrl.addCategory))
+
+router.post(
+  '/:categoryId/addService',
+  validation(addServiceSchema),
+  controllerWrapper(serviceCtrl.addService),
+)
 
 module.exports = router
 
