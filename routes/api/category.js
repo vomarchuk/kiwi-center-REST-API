@@ -10,6 +10,10 @@ router.get('/', controllerWrapper(categoryCtrl.getAllCategories))
 router.get('/:categoryId', controllerWrapper(categoryCtrl.getCategoriesById))
 router.post('/addCategory', controllerWrapper(categoryCtrl.addCategory))
 
+router.get(
+  '/:categoryId/getAllServices',
+  controllerWrapper(serviceCtrl.getAllServicesById),
+)
 router.post(
   '/:categoryId/addService',
   validation(addServiceSchema),

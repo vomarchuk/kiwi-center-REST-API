@@ -1,10 +1,11 @@
 const { Category } = require('../../models')
 const { Conflict } = require('http-error')
-const isDuplicateCategory = require('../../helpers/isDuplicateCategory')
+const isDuplicate = require('../../helpers/isDuplicate')
 
 const addCategory = async (req, res, next) => {
   const newCategory = { ...req.body }
-  if (await isDuplicateCategory(newCategory, Category)) {
+
+  if (await isDuplicate(newCategory, Category)) {
     return next(new Conflict())
   }
 

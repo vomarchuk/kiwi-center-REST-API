@@ -1,3 +1,4 @@
+const getAllServicesById = require('./getAllServicesById')
 const addService = require('./addService')
 
-module.exports = { addService }
+module.exports = { getAllServicesById, addService }
